@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_correct: 1
+  User: one
+  Genre: one
+  Subgenre: one
+
+two:
+  number_correct: 1
+  User: two
+  Genre: two
+  Subgenre: two

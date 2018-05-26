@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<h1 style="color:red"> Quiz is Over </h1>
+	<h2 style="color:purple; font-size:200%"> Your score is <%= $userquizobj.number_correct %> / <%= $correct.size*10 %></h2>
+	<h2 style="color:orange; font-size:200%"> Your graph analytics performance </h2>
+	<h3 style="color:green"> LINE PROGRESS </h3>
+	<%= image_tag(@line_chart, :style => "width:400px;") %>
+	<br /><br /><br />
+	<h3 style="color:green"> PIE-CHART PROGRESS </h3>
+	<%= image_tag(@pie_chart,  :style => "width:50%") %>
+
+	<br />
+	<br />
+
+	<%= link_to "Go to main page", landingpage_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+
+</body>
+</html>

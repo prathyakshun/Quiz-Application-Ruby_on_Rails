@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number correct:</strong>
+  <%= @questionset.number_correct %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @questionset.User %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @questionset.Genre %>
+</p>
+
+<p>
+  <strong>Subgenre:</strong>
+  <%= @questionset.Subgenre %>
+</p>
+
+<%= link_to 'Edit', edit_questionset_path(@questionset) %> |
+<%= link_to 'Back', questionsets_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  questiontext: MyText
+  Genre: one
+  Subgenre: one
+  qtype: 1
+
+two:
+  questiontext: MyText
+  Genre: two
+  Subgenre: two
+  qtype: 1

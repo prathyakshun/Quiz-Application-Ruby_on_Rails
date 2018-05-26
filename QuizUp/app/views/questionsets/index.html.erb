@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questionsets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number correct</th>
+      <th>User</th>
+      <th>Genre</th>
+      <th>Subgenre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questionsets.each do |questionset| %>
+      <tr>
+        <td><%= questionset.number_correct %></td>
+        <td><%= questionset.User %></td>
+        <td><%= questionset.Genre %></td>
+        <td><%= questionset.Subgenre %></td>
+        <td><%= link_to 'Show', questionset %></td>
+        <td><%= link_to 'Edit', edit_questionset_path(questionset) %></td>
+        <td><%= link_to 'Destroy', questionset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Questionset', new_questionset_path %>

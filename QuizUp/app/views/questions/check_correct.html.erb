@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h3 style="text-align:center; color:purple">
+    <strong>Questiontext:</strong>
+    <%= @ques.questiontext %>
+  </h3>
+
+  <h2>
+    <strong>Genre:</strong>
+    <%= Genre.find(@ques.Genre_id).genrename %>
+  </h2>
+
+  <h2>
+    <strong>Subgenre:</strong>
+    <%= Subgenre.find(@ques.Subgenre_id).subgenrename %>
+  </h2>
+  <% $answered = 1 %>
+  <% @ques.options.each do |d| %>
+  <% if @optid.include? d.id.to_s %>
+  <% if d.correct == true %>
+  <p style="color:green; font-size:200%"><%= d.optiontext %></p>
+  <% else %>
+  <p style="color:red; font-size:200%"><%=  d.optiontext %></p>
+  <% end %>
+  <% else %>
+  <% if d.correct == true %>
+  <p style="color:blue; font-size:200%"><%= d.optiontext %></p>
+  <% else %>
+  <p style="font-size:200%"> <%= d.optiontext %></p>
+  <% end %>
+  <% end %>
+  <% end %>
+  <% if @ans == "correct" || @ans == "partial_correct"%>
+  <h1 style="color:green">Correct</h1>
+  <% else %>
+  <h1 style="color:red">Incorrect</h1>
+  <% end %>
+
+  <%= link_to 'Next Question', displayquestions_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+</body>
+</html>

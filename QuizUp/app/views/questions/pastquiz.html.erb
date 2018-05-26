@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color:  #f1c9a1 ;
+		}
+		tr:nth-child(odd) {
+			background-color:  #f1f37f ;
+		}
+	</style>
+
+	<h1 style="color:red"> Past Quiz Scores </h1>
+
+	<div class="container">
+		<table class="table table-hover">
+			<tr>
+				<th> Genre </th>
+				<th> Subgenre </th>
+				<th> Score </th>
+			</tr>
+			<% @userquizquery.each do |d| %>
+			<tr>
+				<td><%= Genre.find(d.Genre_id).genrename %> </td>
+				<td><%= Subgenre.find(d.Subgenre_id).subgenrename %> </td>
+				<td><%= d.number_correct %> </td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<%= link_to "Go to main page", landingpage_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<% if $flag == -1 %>
+	<h1 style="color:red"> You have not completed the previous quiz. Do you like to continue or restart all over? </h1>
+	<%= link_to "Restart", getfreshquestions_path , {:style=>'color:#FFFFFF;',:class => "btn btn-warning"}%>
+	<%= link_to "Continue", getquestions_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+	<% end %>
+	<% if $flag == 2 %>
+	<h1 style="color:red"> You have already completed the quiz, do you wish to retake the quiz? </h1>
+	<%= link_to "Retake", getfreshquestions_path, {:style=>'color:#FFFFFF;',:class => "btn btn-warning"} %>
+	<%= link_to "Go to main page", landingpage_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+	<% end %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+		<h1 style="color:green">Choose Genre and Sungenre</h1>
+		<br />
+
+		<%= form_tag do %>
+		<h2 style="color:blue; text-align:left; font-size:200%">Category</h2>
+		<%= select_tag(:categorydrop, options_for_select(@categoryarr), {:class => "form-control"}) %>
+
+		<br />
+		<button class="btn btn-primary"> submit </button>
+		<%= link_to "Go to main page", landingpage_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+		<% end %>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<%= form_with(model: questionset, local: true) do |form| %>
+  <% if questionset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(questionset.errors.count, "error") %> prohibited this questionset from being saved:</h2>
+
+      <ul>
+      <% questionset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number_correct %>
+    <%= form.number_field :number_correct, id: :questionset_number_correct %>
+  </div>
+
+  <div class="field">
+    <%= form.label :User_id %>
+    <%= form.text_field :User_id, id: :questionset_User_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Genre_id %>
+    <%= form.text_field :Genre_id, id: :questionset_Genre_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Subgenre_id %>
+    <%= form.text_field :Subgenre_id, id: :questionset_Subgenre_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

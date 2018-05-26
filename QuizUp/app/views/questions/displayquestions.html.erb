@@ -1,0 +1,70 @@
+<h1 style="color:purple">
+  <strong>Questiontext:</strong>
+  <%= @question.questiontext %>
+</h1>
+
+<h2>
+  <strong>Genre:</strong>
+  <%= Genre.find(@question.Genre_id).genrename %>
+</h2>
+
+<h2>
+  <strong>Subgenre:</strong>
+  <%= Subgenre.find(@question.Subgenre_id).subgenrename %>
+</h2>
+
+<% if @question.qtype == 3 %>
+  <%= image_tag(@question.image_url, :alt => 'picture', :size => "600x400") %>
+  <% puts("IMAGE URL is ") %>
+  <% puts(@question.image_url) %>
+<% end %>
+
+<% if @question.qtype == 1 || @question.qtype == 3%>
+  <% counter = 2 %>
+  <%= form_tag do %>
+      <% @options.each do |d| %>
+      	<% if $usefifty == 2 && $usedouble != 2 %>
+      		<% if counter != 0 %>
+      			<% if d.correct == false %>
+      				<% counter = counter - 1 %>
+      			<% else %>      				
+        			<p><%= radio_button_tag "ques[]", d.id %>
+        			<%= label_tag "ques[]", d.optiontext %></p>
+        		<% end %>
+        	<% else %>
+        		<p><%= radio_button_tag "ques[]", d.id %>
+        		<%= label_tag "ques[]", d.optiontext %></p>
+        	<% end %>
+        <% elsif $usedouble == 2 && $usefifty != 2 %>
+          <p><%= check_box_tag "ques[]", d.id %>
+          <%= label_tag "ques[]", d.optiontext %></p>
+        <% else %>
+        	<p><%= radio_button_tag "ques[]", d.id %>
+        	<%= label_tag "ques[]", d.optiontext %></p>
+        <% end %>
+      <% end %>
+    <button class="btn btn-warning"> submit </button>
+  <% end %>
+  
+  <br />
+  <% if $userquizobj.fiftyfifty > 0 %>
+    <% if $usefifty != 2 && $usedouble != 2%>
+  	 <%= link_to "50-50", fiftyfifty_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+    <% end %>
+  <% end %>
+  <% if $userquizobj.doubledip > 0 %>
+    <% if $usedouble != 2 && $usefifty != 2%>
+      <%= link_to "Multi-dip", doubledip_path, {:style=>'color:#FFFFFF;',:class => "btn btn-info"}%>
+    <% end %>
+  <% end %>
+
+
+<% elsif @question.qtype==2 %>
+  <%= form_tag do %>
+      <% @options.each do |d| %>
+        <p><%= check_box_tag "ques[]", d.id %>
+        <%= label_tag(:queslabel, d.optiontext) %></p>
+      <% end %>
+      <button class="btn btn-warning"> submit </button>
+  <% end %>
+<% end %>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 style="color:red"> <%= Genre.find($genreid).genrename %> </h1>
+  <h2 style="color:blue; font-size:250%"> <%= Subgenre.find($subgenreid).subgenrename %> </h2>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color:  #f1c9a1 ;
+    }
+    tr:nth-child(odd) {
+      background-color:  #f1f37f ;
+    }
+  </style>
+
+  <table class="table table-hover">
+   <tr>
+    <th>Rank </th>
+    <th>User email </th>
+    <th>Score</th>
+  </tr>
+  <% i=1 %>
+  <% @myhasharr.each do |d| %>
+  <tr>
+   <td> <%= i %> </td>
+   <td> <%= User.find(d[1]).email %> </td>
+   <td> <%= d[0] %></td>
+   <% i=i+1 %>
+ </tr>
+ <% end  %>
+</table>
+
+<%= link_to "Go to Subgenre", leaderboardsubcategory_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+<%= link_to "Go to main page", landingpage_path, {:style=>'color:#FFFFFF;',:class => "btn btn-info"} %>
+</body>
+</html>

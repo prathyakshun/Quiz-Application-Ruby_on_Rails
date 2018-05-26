@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1 style="color:green">Choose Subgenre</h1>
+	<br />
+	<h2 style="color:blue; text-align:left; font-size:200">Subcategory</h2>
+
+
+	<%= form_tag do %>
+	<%= select_tag(:subcategorydrop, options_for_select(@subcategoryarr), {:class => "form-control"}) %>
+	<br />
+	<button class="btn btn-primary"> submit </button>
+	<%= link_to "Go to Category", category_path, {:style=>'color:#FFFFFF;',:class => "btn btn-success"} %>
+	<% end %>
+</body>
+</html>
